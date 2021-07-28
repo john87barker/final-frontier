@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class PlanetsService {
+  async getPlanetsByStarId(query) {
+    return await dbContext.Planets.find(query)
+  }
+
   async getAll(query) {
     return await dbContext.Planets.find(query)
   }

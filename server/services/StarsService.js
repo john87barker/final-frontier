@@ -6,6 +6,10 @@ class StarsService {
     return await dbContext.Stars.find(query)
   }
 
+  async getStarsByGalaxyId(query) {
+    return await dbContext.Stars.find(query)
+  }
+
   async getById(id) {
     const star = await dbContext.Stars.findById(id)
     if (!star) {
