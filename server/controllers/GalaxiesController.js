@@ -12,7 +12,7 @@ export class GalaxiesController extends BaseController {
       .delete('/:id', this.destroy)
   }
 
-  async getAll(res, req, next) {
+  async getAll(req, res, next) {
     try {
       const galaxy = await galaxiesService.getAll(req.query)
       res.send(galaxy)
@@ -21,7 +21,7 @@ export class GalaxiesController extends BaseController {
     }
   }
 
-  async getById(res, req, next) {
+  async getById(req, res, next) {
     try {
       const galaxy = await galaxiesService.getById(req.params.id)
       res.send(galaxy)
@@ -30,7 +30,7 @@ export class GalaxiesController extends BaseController {
     }
   }
 
-  async create(res, req, next) {
+  async create(req, res, next) {
     try {
       const galaxy = await galaxiesService.create(req.body)
       res.send(galaxy)
@@ -39,7 +39,7 @@ export class GalaxiesController extends BaseController {
     }
   }
 
-  async edit(res, req, next) {
+  async edit(req, res, next) {
     try {
       req.body.id = req.params.id
       const galaxy = await galaxiesService.edit(req.body)
@@ -49,10 +49,10 @@ export class GalaxiesController extends BaseController {
     }
   }
 
-  async destroy(res, req, next) {
+  async destroy(req, res, next) {
     try {
       const galaxy = await galaxiesService.destroy(req.params.id)
-      res.send({ galaxy, message: 'deletion successful' })
+      res.send({ message: 'deletion successful' })
     } catch (error) {
       next(error)
     }

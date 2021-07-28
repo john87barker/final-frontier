@@ -5,8 +5,7 @@ const Star = new Schema(
   {
     name: { type: String, required: true },
     color: { type: String, required: true },
-    density: { type: Number },
-    planets: { type: Number, required: true }
+    density: { type: Number }
 
   },
   { timestamps: true, toJSON: { virtuals: true } }
